@@ -1,52 +1,23 @@
 'use strict';
 
 {
-  //Intersection Observer API
+ function play() {
 
-  function inViewcallback(entries, obs) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      entry.target.classList.add('appear');
-      obs.unobserve(entry.target);
-    });
+   setTimeout(() => {
+    images[currentIndex].classList.remove('current');
+    currentIndex++;
+    if (currentIndex > images.length - 1) {
+      currentIndex = 0;
+    }
+    images[currentIndex].classList.add('current');
+    play();
+   }, 5000);
+   
   }
+  
+  const images = document.querySelectorAll('.hero img');
+  let currentIndex = 0;
 
-  function onScrollcallback(entries) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        header.classList.add('scrolled');
-        toTop.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-        toTop.classList.remove('scrolled');
-      }
-    });
-
-  }
-
-  const header = document.querySelector('header');
-  const toTop = document.getElementById('to_top');
-
-  const inViewobserver = new IntersectionObserver(inViewcallback, {
-    threshold: 0.2,
-  });
-
-  document.querySelectorAll('.animate').forEach(el => {
-    inViewobserver.observe(el);
-  });
-
-  const onScrollobserver = new IntersectionObserver(onScrollcallback);
-  onScrollobserver.observe(document.getElementById('target'));
-
-  toTop.addEventListener('click', e => {
-    e.preventDefault();
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  });
+  play();
 }
+ 

@@ -97,7 +97,7 @@ header button {
 /* hero */
 
 .hero {
-  margin-top: 64px;
+  padding-top: 64px;
   height: 400px;
 }
 
@@ -130,7 +130,8 @@ header button {
 
 .products li {
   width: calc((100% - 16px) / 2);
-  /* outline: 2px solid blue; */
+  /* margin-top: 16px; */
+  outline: 2px solid rgb(200, 200, 204);
 }
 
 .products li img {
@@ -216,4 +217,12 @@ footer li + li {
   header form {
     display: block;
     }
+
+  /* super large screen   */
+
+@media (min-width: 1500px) {
+  .hero img {
+    object-fit: contain;
+   
+}
  }

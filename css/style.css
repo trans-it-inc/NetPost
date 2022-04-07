@@ -85,7 +85,7 @@ header button {
 header input {
   border-bottom: 1px solid #aaa;
   padding: 4px;
-  width: 300px;
+  width: 250px;
 }
 
 header button {
@@ -195,6 +195,9 @@ footer li + li {
     background: pink;
   } */
 
+   header form {
+    display: block;
+
   .products li {
     width: calc((100% - 32px) / 3);
     }
@@ -217,12 +220,12 @@ footer li + li {
   header form {
     display: block;
     }
-
+}
   /* super large screen   */
 
 @media (min-width: 1500px) {
   .hero img {
     object-fit: contain;
    
-}
+    }
  }
